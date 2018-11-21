@@ -1,0 +1,573 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Comments in Sass */
+/* Multi-line comments work the
+   same as in regular CSS. These
+   comments will be compiled to 
+   the compiled CSS.  */
+
+// Single line comments
+// Use "//" to create a single line comment
+// Single line comments will not be compiled
+// to the compiled CSS file.
+
+// Global Variables
+// These will be available anywhere after these 
+// varibables are declared
+
+// Colors
+$brand-color: #eb203b;
+$body-bg-color: #303030;
+$wrapper-bg-color: white;
+// Text Colors
+$text-color-dark: black;
+$text-color-light: white;
+
+// Use Color functions to brighten and darken colors
+$brand-color-dark: darken($brand-color, 20);
+$brand-color-light: lighten($brand-color, 20);
+
+// Fonts
+$body-font: Georgia, Times, Times New Roman, serif;
+$heading-font: Tahoma, Verdana, Segoe, sans-serif;
+// Typographic Defualts
+$line-height: 1.4;
+
+// Layout variables
+$padding: 30px;
+// Grid Values
+$gutter: 2;
+
+// Function to determine column width
+// takes two numerical parameters:
+// $c -> the number of columns in a row
+// $g -> the gutter amount
+@function colWidth($c, $g: 2){
+    @return ((100 - $g * ($c - 1)) / $c) * 1%;
+}
+
+$one-col: 100%;
+$two-col: colWidth(2);
+$three-col: colWidth(3);
+$four-col: colWidth(4);
+$five-col: colWidth(5);
+$six-col: colWidth(6);
+
+// Function to
+// Convert Px to Ems
+@function em($px, $bc: 16){
+    @return #{$px/$bc}em; 
+}
+
+// Media Query Breakpoints
+$desktopMedium: em(1250);
+$tabletLandscape: em(1024);
+$tabletPortrait: em(850);
+$phoneLandscape: em(670);
+$phonePortrait: em(420);
+
+// Utility variables
+$link-hover-selector: '&:hover, &:focus, &:active';
+
+// Mixins
+
+// Mixin for centering element
+// with margin-left: auto
+// and margin-right: auto;
+@mixin margin-center {
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+// Mixin for clearing out
+// margins and padding and
+// setting the line-height to 1 
+// ...useful mainly on typographic elements
+@mixin flatten {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+// Visually hide an element but
+// still make it accessible to 
+// a screen reader
+@mixin visually-hidden {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+}
+
+// Clear margins
+@mixin first-last-el-no-margin {
+    > :first-child {
+        margin-top: 0;
+    }
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+@mixin first-el-no-margin {
+    > :first-child {
+        margin-top: 0;
+    }
+}
+
+@mixin last-el-no-margin {
+    :last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Mixin for setting foreground
+// images to cover their container
+// without distortion of the 
+// image
+// using object-fit cover
+@mixin img-cover($abs-pos: true){
+    @if($abs-pos){
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+// Mixin for having an element
+// sit on top of another and
+// and cover the parent element
+// completely
+@mixin el-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+// Mixin to set links
+// to not have their
+// default look
+@mixin plain-link($c: white){
+    text-decoration: none;
+    color: $c;
+}
+
+// Function to set text-color to
+// a light colour or a dark
+// colour depending on the 
+// provided background color;
+@function contrast-text-color($bgc, $ltc: white, $dtc: black){
+    @if(lightness($bgc) > 50){
+        @return $dtc; // lighter background
+    } @else {
+        @return $ltc; // darker background 
+    }
+}
+
+// Layout Mixins
+
+// Mixins for creating a flex row of
+// and evenly spacing out the
+// elements along the row
+@mixin flex-layout-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+// Center elements in a flex
+// container
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+// Aspect Ratio Presets
+$ar-video: (9 / 16) * 100%;
+$ar-square: (1 / 1) * 100%;
+$ar-cinemamatic: (9 / 21) * 100%;
+
+
+// Function to generate aspect
+// ratio percentages
+@function rp($w, $h){
+    @return ($h / $w) * 100%;
+}
+
+// Aspect Ratios
+$aspect-ratios: (
+    'video': rp(16, 9),
+    'square': rp(1,1),
+    'cinema': rp(21,9),
+    'photo': rp(1,1)
+);
+
+// Aspect Ratio Boxes Mixin
+// This defaults to a square 
+// aspect ratio
+@mixin aspect-ratio-box($ar) {
+
+    $ratio: 100%;
+
+    @if map_has_key($aspect-ratios, $ar) {
+        $ratio: map_get($aspect-ratios, $ar);
+    } 
+
+    position: relative;
+
+    &:before {
+        content: "";
+        width: 1px;
+        margin-left: -1px;
+        float: left;
+        height: 0;
+        padding-top: $ratio;
+    }
+     
+    &:after { 
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+}
+
+// Placeholder styles
+// Similar to mixins but without
+// parameters
+%row-item {
+    width: $two-col;
+    padding: $padding;
+    @include first-last-el-no-margin;
+    border: 1px dotted #ccc;
+    @media (max-width: $phoneLandscape){
+        width: $one-col;
+        margin-bottom: 8%;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+// Resets
+
+// Box Sizing Reset
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+// Image Reset
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+// Table Reset
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// Remove Margins on the body
+body {
+    margin: 0;
+}
+
+// Typography Styles
+body {
+    font-family: $body-font;
+    line-height: $line-height;
+}
+
+h1, h2, h3, nav a, table {
+    font-family: $heading-font;
+}
+
+// Body Styles
+body {
+    background-color: $body-bg-color;
+}
+
+// Wrapper styles
+.wrapper {
+    max-width: 960px;
+    @include margin-center;
+    background-color: $wrapper-bg-color;
+    display: flex;
+}
+
+// Header styles
+header {
+    background-color: $brand-color;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 172px;
+    h1 {
+        @include flatten;
+        color: $text-color-light;
+        @media (max-width: $phoneLandscape){
+            font-size: 1em;
+        }
+    }
+}
+// Hamburger Styles
+.hamburger {
+
+    display: none;
+
+    @media (max-width: $phoneLandscape){
+        display: block;
+        width: 40px;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    
+        .hamburger-content {
+            height: 24px;
+        }
+
+        .text {
+            @include visually-hidden;
+        }
+
+        .bar {
+            $transition: all 0.3s ease-in-out;
+            $bar-height: 4px;
+            @mixin bar($pos-neg: '') {
+                content: "";
+                width: 100%;
+                height: $bar-height;
+                top: #{$pos-neg}10px;
+                left: 0;
+                background-color: white;
+                position: absolute;
+                transition: $transition;
+                .show & {
+                    top: 0;
+                    transform: rotate(#{$pos-neg}45deg);
+                }
+            }
+
+            display: block;
+            height: $bar-height;
+            background-color: $text-color-light;
+            width: 100%;
+            position: relative;
+            top: 10px;
+            transition: $transition;
+
+            .show & {
+                background-color: transparent;
+            }
+
+            &:after {
+               @include bar;
+            }
+            &:before {
+                @include bar('-');
+            }
+        }
+
+        &:focus,
+        .hamburger-content:focus {
+            outline: none;
+        }
+
+        &:focus .hamburger-content {
+            outline: 5px solid #7683C9;
+        }
+    
+    }
+}
+
+nav {
+   min-height:100%;
+   flex-grow: 1;
+    ul
+    {
+        margin: 0;
+        padding: 20px 0;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        float:left;
+       // border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+    ul li 
+    {
+        list-style: none;
+        text-align: center;
+        display: block;
+        border-right: 1px solid rgba(0,0,0,0.2);
+    }
+    ul li:last-child
+    {
+        border-right: none;
+    }
+    ul li a
+    {
+        text-decoration: none;
+        padding: 0 50px;
+        display: block;
+    }
+    ul li a .icon
+    {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        overflow: hidden; /*background:  #ccc; /* color bck icon*/
+        margin: 0 auto 10px;
+    }
+    ul li a .icon .fa
+    {
+        width: 100%;
+        height: 100%;
+        line-height: 40px;
+        font-size: 34px;
+        transition: 0.5s;
+        color: #000;
+    }
+    ul li a .icon .fa:last-child
+    {
+        color: #e91e63;
+    }
+    ul li a:hover .icon .fa 
+    {
+        transform: translateY(-100%);
+    }
+    ul li a .name
+    {
+        position: relative;
+        height: 20px;
+        width: auto /*100%;*/;
+        display: inline-block /*block;*/;
+        overflow: hidden;
+    }
+    ul li a .name span
+    {
+        display: block;
+        position: relative;
+        color: #000;
+        font-size: 18px;
+        line-height: 20px;
+        transition: 0.5s;
+    }
+    ul li a .name span::before
+    {
+        content: attr(data-text);
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #e91e63;
+    }
+    ul li a:hover .name span
+    {
+        transform: translateY(20px);
+    }
+    @media (max-width: $phoneLandscape) {
+        display: none;
+        height: auto;
+
+        .show & {
+            display: block;
+        }
+
+        a {
+            line-height: 50px;
+         
+        }
+        
+    }
+
+}
+
+main{flex-grow: 1}
+.Schedule{
+    display: grid;
+    height:450px;
+    grid-template:
+    'day1 day2 day3 day4'
+    'day5 day6 day7 day8'
+    'day9 day10 day11 day12';
+  grid-gap: 10px;
+  padding: 10px;
+}
+.day1 {grid-area: day1;    border:solid 2px black; background-color:pink;
+};
+.day2 {grid-area: day2;    border:solid 2px black;background-color:pink;
+};
+.day3 {grid-area: day3;    border:solid 2px black;background-color:pink;
+};
+.day4 {grid-area: day4;    border:solid 2px black;background-color:pink;
+};
+.day5 {grid-area: day5;    border:solid 2px black;background-color:pink;
+};
+.day6 {grid-area: day6;    border:solid 2px black;background-color:pink;
+};
+.day7 {grid-area: day7;    border:solid 2px black;background-color:pink;
+};
+.day8 {grid-area: day8;    border:solid 2px black;background-color:pink;
+};
+.day9 {grid-area: day9;    border:solid 2px black;background-color:pink;
+};
+.day10 {grid-area: day10;    border:solid 2px black;background-color:pink;
+};
+.day11 {grid-area: day11;    border:solid 2px black;background-color:pink;
+};
+.day12 {grid-area: day12;    border:solid 2px black;background-color:pink;
+};
+
+// Main Styles
+main {
+    padding: $padding;    
+
+    section:not(:first-child) {
+        margin-top: $padding;
+    }
+    
+}
+.banner{
+    height:30vw;
+    @include flex-layout-row;
+
+}
+
+
+
+// Footer Styles
+footer {
+    padding: $padding;
+    background-color: #7683C9;
+    max-width: 960px;
+    @include margin-center;
+    text-align: center;
+    p {
+        @include flatten;
+    }
+}
+
+
