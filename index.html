@@ -1,89 +1,99 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+<link rel="stylesheet" type="text/css" href="./styles/styles_amanda.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <html>
 
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>BCIT COMP1950</title>
+    <title>BCIT COMP1950</title>
 </head>
 
 <body>
-        <div class='wrapper'>
-                <header>
-                        <h1>BCIT COMP 1950</h1>
-                        <button class="hamburger" id="hamburger">
-                                <div class="hamburger-content" tabindex="-1">
-                                    <span class="text">Menu</span>
-                                    <span class="bar"></span>
-                                </div><!-- end button-content -->
-                        </button>
-                        <nav>
-                                       <ul> <li>
-                                                        <a href="./index.html">
-                                                            <div class="icon">
-                                                            <i class="fa fa-home" aria-hidden="true"></i>
-                                                            <i class="fa fa-home" aria-hidden="true"></i>
-                                                            </div><!--icon-->
-                                                            <div class="name"><span data-text="Home"> Home</span></div><!--name-->
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="./outline.html">
-                                                            <div class="icon">
-                                                            <i class="fa fa-home" aria-hidden="true"></i>
-                                                            <i class="fa fa-home" aria-hidden="true"></i>
-                                                            </div><!--icon-->
-                                                            <div class="name"><span data-text="Course"> Course</span></div><!--name-->
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="./calendar.html">
-                                                            <div class="icon">
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                                            </div><!--icon-->
-                                                            <div class="name"><span data-text="Schedule">Schedule</span></div><!--name-->
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="icon">
-                                                            <i class="fa fa-book" aria-hidden="true"></i>
-                                                            <i class="fa fa-book" aria-hidden="true"></i>
-                                                            </div><!--icon-->
-                                                            <div class="name"><span data-text="Lessons"> Lessons</span></div><!--name-->
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <div class="icon">
-                                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                                            </div><!--icon-->
-                                                            <div class="name"><span data-text="Contact"> Contact</span></div><!--name-->
-                                                        </a>
-                                                    </li></ul>
-                         </nav>
-                    </header>
-                    
-                <main>
-                        <div class='banner'>
-                                <img src="./images/desktop.jpg" alt="desktop"></picture>
-                        </div>
-                        <section class="intro">
-                               <article>
-                                       <h1>Welcome</h1>
-                                       
-                               </article> 
-                        </section>
-                </main>
-               
-        </div>
-        <script src="./scripts/menu.js"></script>
-</body>
+    <div class='wrapper'>
+        <header>
+            <h1>BCIT COMP 1950</h1>
+            <button class="btn-menu">Menu</button>
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <a href="./index.html">
+                            <div class="icon">
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                            </div>
+                            <!--icon-->
+                            <div class="name"><span data-text="Home"> Home</span></div>
+                            <!--name-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./outline.html">
+                            <div class="icon">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                            </div>
+                            <!--icon-->
+                            <div class="name"><span data-text="Course"> Course</span></div>
+                            <!--name-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./calendar.html">
+                            <div class="icon">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </div>
+                            <!--icon-->
+                            <div class="name"><span data-text="Schedule">Schedule</span></div>
+                            <!--name-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="icon">
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                            </div>
+                            <!--icon-->
+                            <div class="name"><span data-text="Lessons"> Lessons</span></div>
+                            <!--name-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./contact.html">
+                            <div class="icon">
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            </div>
+                            <!--icon-->
+                            <div class="name"><span data-text="Contact"> Contact</span></div>
+                            <!--name-->
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class='banner'>
+                <img src="./images/desktop.jpg" alt="desktop"></picture>
+            </div>
+            <section class="intro">
+                <article>
+                    <h1>Welcome</h1>
+
+                </article>
+            </section>
+        </main>
+
+    </div>
+
+    
 <footer>
-                <p>&copy; 2018 Final Project</p>
+    <p>&copy; 2018 Final Project</p>
 </footer>
+<script src="./scripts/menu.js"></script>
+</body>
 </html>

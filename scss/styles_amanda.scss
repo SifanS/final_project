@@ -62,9 +62,9 @@ $six-col: colWidth(6);
 
 // Media Query Breakpoints
 $desktopMedium: em(1250);
-$tabletLandscape: em(1024);
+$tabletLandscape: em(946);
 $tabletPortrait: em(850);
-$phoneLandscape: em(670);
+$phoneLandscape: em(700);
 $phonePortrait: em(420);
 
 // Utility variables
@@ -81,7 +81,12 @@ $link-hover-selector: '&:hover, &:focus, &:active';
         right: auto;
     }
 }
-
+// Media Query Mixin
+@mixin mq($w) {
+    @media (max-width: $w) {
+        @content;
+    }
+}
 // Mixin for clearing out
 // margins and padding and
 // setting the line-height to 1 
@@ -313,6 +318,16 @@ body {
     @include margin-center;
     background-color: $wrapper-bg-color;
     display: flex;
+    @media (max-width: $tabletLandscape) {
+        .show & {
+            height: 600px;
+        }       
+    }
+    @media (max-width: $phoneLandscape) {
+        .show & {
+            height: 500px;
+        }       
+    }
 }
 
 // Header styles
@@ -321,116 +336,75 @@ header {
     display: flex;
     flex-direction: column;
     align-items: left;
-    width: 172px;
+    max-width:200px;
+    @media (max-width: $tabletLandscape) {
+
+     }
+     @media (max-width: $phoneLandscape) {
+           width: 150px ; 
+     }
     h1 {
-        @include flatten;
+        font-size: 1.6em;        
         color: $text-color-light;
+        text-align: center;
+        @media (max-width: $tabletLandscape){
+            font-size: 1.6em;
+        }
         @media (max-width: $phoneLandscape){
             font-size: 1em;
         }
     }
 }
-// Hamburger Styles
-.hamburger {
-
+//menu
+.btn-menu {
     display: none;
-
-    @media (max-width: $phoneLandscape){
+    padding:0px 10px 10px 40px;
+    @media (max-width: $tabletLandscape){
         display: block;
-        width: 40px;
-        background-color: transparent;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-    
-        .hamburger-content {
-            height: 24px;
+        color: white;
+        font-size: 1.6rem;
+        padding:0px 10px 10px 10px;
+        width: 80px;
+        background-color: $brand-color;
+        border:none;
+    }
+    @media (max-width: $phoneLandscape){
+        font-size: 1em;
+        padding:10px;
+        .show & {
+            margin:0 20px 0 25px;
         }
-
-        .text {
-            @include visually-hidden;
-        }
-
-        .bar {
-            $transition: all 0.3s ease-in-out;
-            $bar-height: 4px;
-            @mixin bar($pos-neg: '') {
-                content: "";
-                width: 100%;
-                height: $bar-height;
-                top: #{$pos-neg}10px;
-                left: 0;
-                background-color: white;
-                position: absolute;
-                transition: $transition;
-                .show & {
-                    top: 0;
-                    transform: rotate(#{$pos-neg}45deg);
-                }
-            }
-
-            display: block;
-            height: $bar-height;
-            background-color: $text-color-light;
-            width: 100%;
-            position: relative;
-            top: 10px;
-            transition: $transition;
-
-            .show & {
-                background-color: transparent;
-            }
-
-            &:after {
-               @include bar;
-            }
-            &:before {
-                @include bar('-');
-            }
-        }
-
-        &:focus,
-        .hamburger-content:focus {
-            outline: none;
-        }
-
-        &:focus .hamburger-content {
-            outline: 5px solid #7683C9;
-        }
-    
     }
 }
 
 nav {
-   min-height:100%;
-   flex-grow: 1;
     ul
     {
         margin: 0;
         padding: 20px 0;
-        background: #fff;
+        background:transparent;
         display: flex;
         flex-direction: column;
         float:left;
        // border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,.3);
+        //box-shadow: 0 10px 30px rgba(0,0,0,.3);
     }
     ul li 
     {
         list-style: none;
         text-align: center;
         display: block;
-        border-right: 1px solid rgba(0,0,0,0.2);
     }
-    ul li:last-child
-    {
-        border-right: none;
-    }
+   
     ul li a
     {
         text-decoration: none;
         padding: 0 50px;
         display: block;
+        @media (max-width: $tabletLandscape) {
+            padding: 0 30px;
+
+        }
     }
     ul li a .icon
     {
@@ -439,6 +413,15 @@ nav {
         text-align: center;
         overflow: hidden; /*background:  #ccc; /* color bck icon*/
         margin: 0 auto 10px;
+        @media (max-width: $tabletLandscape) {
+            width: 30px;
+            height: 35px;
+        }
+        @media (max-width: $phoneLandscape) {
+            width: 20px;
+            height: 30px;
+
+        }
     }
     ul li a .icon .fa
     {
@@ -447,11 +430,17 @@ nav {
         line-height: 40px;
         font-size: 34px;
         transition: 0.5s;
-        color: #000;
+        color: #fff;
+        @media (max-width: $tabletLandscape) {
+            font-size: 30px;
+        }
+        @media (max-width: $phoneLandscape) {
+            font-size: 20px;
+        }
     }
     ul li a .icon .fa:last-child
     {
-        color: #e91e63;
+        color: blue;
     }
     ul li a:hover .icon .fa 
     {
@@ -469,11 +458,19 @@ nav {
     {
         display: block;
         position: relative;
-        color: #000;
+        color: #fff;
         font-size: 18px;
         line-height: 20px;
         transition: 0.5s;
+        @media (max-width: $tabletLandscape) {
+            font-size: 15px;
+        }
+        @media (max-width: $phoneLandscape) {
+            font-size: 12px;
+        }
+
     }
+
     ul li a .name span::before
     {
         content: attr(data-text);
@@ -482,91 +479,128 @@ nav {
         left: 0;
         width: 100%;
         height: 100%;
-        color: #e91e63;
+        color:blue;
     }
     ul li a:hover .name span
     {
         transform: translateY(20px);
     }
-    @media (max-width: $phoneLandscape) {
+    @media (max-width: $tabletLandscape) {
         display: none;
-        height: auto;
-
+        position: relative;
         .show & {
             display: block;
         }
-
         a {
-            line-height: 50px;
-         
+            line-height: 30px; 
+        } 
+    }
+    @media (max-width: $phoneLandscape) {
+        display: none;
+        position: relative;
+        .show & {
+            display: block;
+        }
+        a {
+            line-height: 30px;
         }
         
     }
-
 }
 
-main{flex-grow: 1}
-.Schedule{
-    display: grid;
-    height:450px;
-    grid-template:
-    'day1 day2 day3 day4'
-    'day5 day6 day7 day8'
-    'day9 day10 day11 day12';
-  grid-gap: 10px;
-  padding: 10px;
-}
-.day1 {grid-area: day1;    border:solid 2px black; background-color:pink;
-};
-.day2 {grid-area: day2;    border:solid 2px black;background-color:pink;
-};
-.day3 {grid-area: day3;    border:solid 2px black;background-color:pink;
-};
-.day4 {grid-area: day4;    border:solid 2px black;background-color:pink;
-};
-.day5 {grid-area: day5;    border:solid 2px black;background-color:pink;
-};
-.day6 {grid-area: day6;    border:solid 2px black;background-color:pink;
-};
-.day7 {grid-area: day7;    border:solid 2px black;background-color:pink;
-};
-.day8 {grid-area: day8;    border:solid 2px black;background-color:pink;
-};
-.day9 {grid-area: day9;    border:solid 2px black;background-color:pink;
-};
-.day10 {grid-area: day10;    border:solid 2px black;background-color:pink;
-};
-.day11 {grid-area: day11;    border:solid 2px black;background-color:pink;
-};
-.day12 {grid-area: day12;    border:solid 2px black;background-color:pink;
-};
 
-// Main Styles
-main {
-    padding: $padding;    
-
-    section:not(:first-child) {
-        margin-top: $padding;
-    }
+main{
+    flex-grow: 1;
     
 }
-.banner{
-    height:30vw;
-    @include flex-layout-row;
 
+.banner{ 
+    h2{
+        @include margin-center;
+        text-align: center;
+        padding-top: 30px;
+        font-size: 2em;
+    }
+    p{
+    @include margin-center;
+    text-align: center;
+    margin:0;
+    font-size: 1.6em;
+    }
+     margin-bottom: 30px
+    }
+
+
+    .grid-calendar{
+        display: grid;
+        height:450px;
+        grid-template:
+        'day1 day2 day3 day4'
+        'day5 day6 day7 day8'
+        'day9 day10 day11 day12';
+        grid-gap: 10px;
+        padding: 10px;
+        }
+        .day1 {grid-area: day1; border:solid 2px black; background-color:pink;
+        };
+        .day2 {grid-area: day2; border:solid 2px black;background-color:pink;
+        };
+        .day3 {grid-area: day3; border:solid 2px black;background-color:pink;
+        };
+        .day4 {grid-area: day4; border:solid 2px black;background-color:pink;
+        };
+        .day5 {grid-area: day5; border:solid 2px black;background-color:pink;
+        };
+        .day6 {grid-area: day6; border:solid 2px black;background-color:pink;
+        };
+        .day7 {grid-area: day7; border:solid 2px black;background-color:pink;
+        };
+        .day8 {grid-area: day8; border:solid 2px black;background-color:pink;
+        };
+        .day9 {grid-area: day9; border:solid 2px black;background-color:pink;
+        };
+        .day10 {grid-area: day10; border:solid 2px black;background-color:pink;
+        };
+        .day11 {grid-area: day11; border:solid 2px black;background-color:pink;
+        };
+        .day12 {grid-area: day12; border:solid 2px black;background-color:pink;
+        };
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
 }
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+
+
 
 
 
 // Footer Styles
 footer {
     padding: $padding;
-    background-color: #7683C9;
+    background-color: black;
     max-width: 960px;
     @include margin-center;
     text-align: center;
     p {
         @include flatten;
+        color: white;
     }
 }
 

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="./styles/styles.css">
+<link rel="stylesheet" type="text/css" href="./styles/styles_amanda.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <html>
+
+</html>
 
 <head>
     <meta charset="UTF-8">
@@ -13,13 +16,8 @@
     <div class='wrapper'>
         <header>
             <h1>BCIT COMP 1950</h1>
-            <button class="hamburger" id="hamburger">
-                <div class="hamburger-content" tabindex="-1">
-                    <span class="text">Menu</span>
-                    <span class="bar"></span>
-                </div><!-- end button-content -->
-            </button>
-            <nav>
+            <button class="btn-menu">Menu</button>
+            <nav id="nav">
                 <ul>
                     <li>
                         <a href="./index.html">
@@ -35,8 +33,8 @@
                     <li>
                         <a href="./outline.html">
                             <div class="icon">
-                                <i class="fa fa-home" aria-hidden="true"></i>
-                                <i class="fa fa-home" aria-hidden="true"></i>
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                                <i class="fa fa-code" aria-hidden="true"></i>
                             </div>
                             <!--icon-->
                             <div class="name"><span data-text="Course"> Course</span></div>
@@ -66,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./contact.html">
                             <div class="icon">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -83,32 +81,34 @@
         <main>
             <section class="intro">
                 <article>
-                    <h1>Schedule</h1>
-
+                    <h1>Course Description</h1>
                 </article>
             </section>
-            <div class='Schedule'>
-                <div class="day1"><a href="#0">Day 1</a></div>
-                <div class="day2">Day 2</div>
-                <div class="day3">Day 3</div>
-                <div class="day4">Day 4</div>
-                <div class="day5">Day 5</div>
-                <div class="day6">Day 6</div>
-                <div class="day7">Day 7</div>
-                <div class="day8">Day 8</div>
-                <div class="day9">Day 9</div>
-                <div class="day10">Day 10</div>
-                <div class="day11">Day 11</div>
-                <div class="day12">Day 12</div>
+            <div class="container">
+                <div class="grid-calendar">
+                    <div class="day1">Day 1</div>
+                    <div class="day2">Day 2</div>
+                    <div class="day3">Day 3</div>
+                    <div class="day4">Day 4</div>
+                    <div class="day5">Day 5</div>
+                    <div class="day6">Day 6</div>
+                    <div class="day7">Day 7</div>
+                    <div class="day8">Day 8</div>
+                    <div class="day9">Day 9</div>
+                    <div class="day10">Day 10</div>
+                    <div class="day11">Day 11</div>
+                    <div class="day12">Day 12</div>
+                </div>
             </div>
 
         </main>
 
+
     </div>
+    <footer>
+        <p>&copy; 2018 Final Project</p>
+    </footer>
     <script src="./scripts/menu.js"></script>
 </body>
-<footer>
-    <p>&copy; 2018 Final Project</p>
-</footer>
 
 </html>
