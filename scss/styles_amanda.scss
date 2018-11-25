@@ -318,16 +318,7 @@ body {
     @include margin-center;
     background-color: $wrapper-bg-color;
     display: flex;
-    @media (max-width: $tabletLandscape) {
-        .show & {
-            height: 600px;
-        }       
-    }
-    @media (max-width: $phoneLandscape) {
-        .show & {
-            height: 500px;
-        }       
-    }
+
 }
 
 // Header styles
@@ -336,19 +327,19 @@ header {
     display: flex;
     flex-direction: column;
     align-items: left;
-    max-width:200px;
+    width:25%;
     @media (max-width: $tabletLandscape) {
-
+          width: 40vw;;
      }
      @media (max-width: $phoneLandscape) {
-           width: 150px ; 
+           width: 20vw ; 
      }
     h1 {
         font-size: 1.6em;        
         color: $text-color-light;
         text-align: center;
         @media (max-width: $tabletLandscape){
-            font-size: 1.6em;
+            font-size: 1.4em;
         }
         @media (max-width: $phoneLandscape){
             font-size: 1em;
@@ -356,157 +347,10 @@ header {
     }
 }
 //menu
-.btn-menu {
-    display: none;
-    padding:0px 10px 10px 40px;
-    @media (max-width: $tabletLandscape){
-        display: block;
-        color: white;
-        font-size: 1.6rem;
-        padding:0px 10px 10px 10px;
-        width: 80px;
-        background-color: $brand-color;
-        border:none;
-    }
-    @media (max-width: $phoneLandscape){
-        font-size: 1em;
-        padding:10px;
-        .show & {
-            margin:0 20px 0 25px;
-        }
-    }
-}
 
-nav {
-    ul
-    {
-        margin: 0;
-        padding: 20px 0;
-        background:transparent;
-        display: flex;
-        flex-direction: column;
-        float:left;
-       // border-radius: 10px;
-        //box-shadow: 0 10px 30px rgba(0,0,0,.3);
-    }
-    ul li 
-    {
-        list-style: none;
-        text-align: center;
-        display: block;
-    }
-   
-    ul li a
-    {
-        text-decoration: none;
-        padding: 0 50px;
-        display: block;
-        @media (max-width: $tabletLandscape) {
-            padding: 0 30px;
+@import "btn-menu";
 
-        }
-    }
-    ul li a .icon
-    {
-        width: 40px;
-        height: 40px;
-        text-align: center;
-        overflow: hidden; /*background:  #ccc; /* color bck icon*/
-        margin: 0 auto 10px;
-        @media (max-width: $tabletLandscape) {
-            width: 30px;
-            height: 35px;
-        }
-        @media (max-width: $phoneLandscape) {
-            width: 20px;
-            height: 30px;
-
-        }
-    }
-    ul li a .icon .fa
-    {
-        width: 100%;
-        height: 100%;
-        line-height: 40px;
-        font-size: 34px;
-        transition: 0.5s;
-        color: #fff;
-        @media (max-width: $tabletLandscape) {
-            font-size: 30px;
-        }
-        @media (max-width: $phoneLandscape) {
-            font-size: 20px;
-        }
-    }
-    ul li a .icon .fa:last-child
-    {
-        color: blue;
-    }
-    ul li a:hover .icon .fa 
-    {
-        transform: translateY(-100%);
-    }
-    ul li a .name
-    {
-        position: relative;
-        height: 20px;
-        width: auto /*100%;*/;
-        display: inline-block /*block;*/;
-        overflow: hidden;
-    }
-    ul li a .name span
-    {
-        display: block;
-        position: relative;
-        color: #fff;
-        font-size: 18px;
-        line-height: 20px;
-        transition: 0.5s;
-        @media (max-width: $tabletLandscape) {
-            font-size: 15px;
-        }
-        @media (max-width: $phoneLandscape) {
-            font-size: 12px;
-        }
-
-    }
-
-    ul li a .name span::before
-    {
-        content: attr(data-text);
-        position: absolute;
-        top: -100%;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        color:blue;
-    }
-    ul li a:hover .name span
-    {
-        transform: translateY(20px);
-    }
-    @media (max-width: $tabletLandscape) {
-        display: none;
-        position: relative;
-        .show & {
-            display: block;
-        }
-        a {
-            line-height: 30px; 
-        } 
-    }
-    @media (max-width: $phoneLandscape) {
-        display: none;
-        position: relative;
-        .show & {
-            display: block;
-        }
-        a {
-            line-height: 30px;
-        }
-        
-    }
-}
+@import "nav-bar";
 
 
 main{

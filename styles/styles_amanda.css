@@ -46,27 +46,22 @@ body {
   background-color: white;
   display: flex;
 }
-@media (max-width: 59.125em) {
-  .show .wrapper {
-    height: 600px;
-  }
-}
-@media (max-width: 43.75em) {
-  .show .wrapper {
-    height: 500px;
-  }
-}
 
 header {
   background-color: #eb203b;
   display: flex;
   flex-direction: column;
   align-items: left;
-  max-width: 200px;
+  width: 25%;
+}
+@media (max-width: 59.125em) {
+  header {
+    width: 40vw;
+  }
 }
 @media (max-width: 43.75em) {
   header {
-    width: 150px;
+    width: 20vw;
   }
 }
 header h1 {
@@ -76,7 +71,7 @@ header h1 {
 }
 @media (max-width: 59.125em) {
   header h1 {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 }
 @media (max-width: 43.75em) {
@@ -87,15 +82,12 @@ header h1 {
 
 .btn-menu {
   display: none;
-  padding: 0px 10px 10px 40px;
 }
 @media (max-width: 59.125em) {
   .btn-menu {
     display: block;
     color: white;
-    font-size: 1.6rem;
-    padding: 0px 10px 10px 10px;
-    width: 80px;
+    font-size: 1.4rem;
     background-color: #eb203b;
     border: none;
   }
