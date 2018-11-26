@@ -11,105 +11,96 @@
     <title>Contact</title>
 </head>
 <body>
-
+        <div class='wrapper'>
+                <header>
+                <h1 id="logo">BCIT COMP 1950</h1>
     <!--nav  bar-->
-    <div class="menuToggle">Menu</div>
-    <div class="active"></div>
-    <ul>
-        <li>
-            <a href="#">
-                <div class="icon">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                <i class="fa fa-home" aria-hidden="true"></i>
-                </div><!--icon-->
-                <div class="name"><span data-text="Home"> Home</span></div><!--name-->
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="icon">
-                <i class="fa fa-code" aria-hidden="true"></i>
-                <i class="fa fa-code" aria-hidden="true"></i>
-                </div><!--icon-->
-                <div class="name"><span data-text="Course"> Course</span></div><!--name-->
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="icon">
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-                </div><!--icon-->
-                <div class="name"><span data-text="Schedule">Schedule</span></div><!--name-->
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="icon">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </div><!--icon-->
-                <div class="name"><span data-text="Lessons"> Lessons</span></div><!--name-->
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <div class="icon">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                </div><!--icon-->
-                <div class="name"><span data-text="Contact"> Contact</span></div><!--name-->
-            </a>
-        </li>
-  
-    </ul>
+    <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <div class="icon">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        </div><!--icon-->
+                        <div class="name"><span data-text="Home"> Home</span></div><!--name-->
+                    </a>
+                </li>
+                <li>
+                    <a href="outline.html">
+                        <div class="icon">
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                        <i class="fa fa-code" aria-hidden="true"></i>
+                        </div><!--icon-->
+                        <div class="name"><span data-text="Course"> Course</span></div><!--name-->
+                    </a>
+                </li>
+                <li>
+                    <a href="schedule.html">
+                        <div class="icon">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </div><!--icon-->
+                        <div class="name"><span data-text="Schedule">Schedule</span></div><!--name-->
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="icon">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        </div><!--icon-->
+                        <div class="name"><span data-text="Lessons"> Lessons</span></div><!--name-->
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <div class="icon">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        </div><!--icon-->
+                        <div class="name"><span data-text="Contact"> Contact</span></div><!--name-->
+                    </a>
+                </li>
+            </ul>
+        </nav>
+</header>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-        $('.menuToggle').click(function(){
-        $('ul').toggleClass('active')
-    })
-})
+    <main>
+        <div class="wrap-contact">
+            <h2>Contact Us</h2>
+            <img id="envelope" src="img/envelope.png">
     
-    </script>
-
-    <!--end of nav bar-->
-
-    <div class="wrap-contact">
-        <h2>Contact Us</h2>
-        <img src="img/envelope.png">
-
-        <div class="container-radio">
-
-            <label>Current student</label>
-            <input type="radio" checked="checked" name="radio" id="current-student" onclick="showHideID()">
-            <span class="checkmark"></span>
-
-            <label>Future student</label>
-            <input type="radio" name="radio" id="future-student" onclick="showHideID()">
-            <span class="checkmark"></span>
+            <div class="container-radio">
+    
+                <label>Current student</label>
+                <input type="radio" checked="checked" name="radio" id="current-student" onclick="showHideID()">
+                <span class="checkmark"></span>
+    
+                <label>Future student</label>
+                <input type="radio" name="radio" id="future-student" onclick="showHideID()">
+                <span class="checkmark"></span>
+                
+            </div><!--container-radio-->
+    
+    <form name="myForm" action="#" method="POST" onsubmit="validateForm()">
+    
+            <input class="input" type="text" placeholder="First name" id="fname">
             
-        </div><!--container-radio-->
-
-<form name="myForm" action="#" method="POST">
-
-        <input class="input" type="text" placeholder="First name" id="fname">
-        
-        <input class="input" type="text" placeholder="Last name" id="lname">
-
-        <input class="input" type="text" placeholder="Your email" name="email">
- 
-        <input class="input" type="text" placeholder="Your BCIT ID" name="BCIT ID" id="BCIT ID">
-        
-        <div class="input-box">
-        <input type="submit" value="Submit" onclick="validateForm()">
-        </div><!--end of input-box-->
-
-
-    </div><!--end of wrap-contact-->
-</form>
-
+            <input class="input" type="text" placeholder="Last name" id="lname">
+    
+            <input class="input" type="text" placeholder="Your email" name="email">
+     
+            <input class="input" type="text" placeholder="Your BCIT ID" name="BCIT ID" id="BCIT ID">
+            
+            <div class="input-box">
+            <input type="submit" value="Submit">
+            </div><!--end of input-box-->
+    
+            </div>
+        </div><!--end of wrap-contact-->
+    </form>
+</main>
 
 </body>
 </html>
