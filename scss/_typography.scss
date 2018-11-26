@@ -1,0 +1,18 @@
+// Fonts
+$body-font: Georgia, Times, Times New Roman, serif;
+$heading-font: Tahoma, Verdana, Segoe, sans-serif;
+// Typographic Defualts
+$line-height: 1.4;
+
+
+
+// Typography Styles
+body {
+    font-family: $body-font;
+    line-height: $line-height;
+}
+
+h1, h2, h3, nav a, table {
+    font-family: $heading-font;
+}
+

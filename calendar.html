@@ -2,14 +2,12 @@
 <link rel="stylesheet" type="text/css" href="./styles/styles_amanda.css">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <html>
-<link rel="stylesheet" type="text/css" href="./styles/styles.css">
 
 </html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>BCIT COMP1950</title>
 </head>
 
@@ -17,66 +15,71 @@
     <div class='wrapper'>
         <header>
             <h1>BCIT COMP 1950</h1>
-            <button class="btn-menu">Menu</button>
-            <nav id="nav">
-                <ul>
-                    <li>
-                        <a href="./index.html">
-                            <div class="icon">
-                                <i class="fa fa-home" aria-hidden="true"></i>
-                                <i class="fa fa-home" aria-hidden="true"></i>
-                            </div>
-                            <!--icon-->
-                            <div class="name"><span data-text="Home"> Home</span></div>
-                            <!--name-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./outline.html">
-                            <div class="icon">
-                                <i class="fa fa-code" aria-hidden="true"></i>
-                                <i class="fa fa-code" aria-hidden="true"></i>
-                            </div>
-                            <!--icon-->
-                            <div class="name"><span data-text="Course"> Course</span></div>
-                            <!--name-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./calendar.html">
-                            <div class="icon">
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                            </div>
-                            <!--icon-->
-                            <div class="name"><span data-text="Schedule">Schedule</span></div>
-                            <!--name-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="icon">
-                                <i class="fa fa-book" aria-hidden="true"></i>
-                                <i class="fa fa-book" aria-hidden="true"></i>
-                            </div>
-                            <!--icon-->
-                            <div class="name"><span data-text="Lessons"> Lessons</span></div>
-                            <!--name-->
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./contact.html">
-                            <div class="icon">
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                            </div>
-                            <!--icon-->
-                            <div class="name"><span data-text="Contact"> Contact</span></div>
-                            <!--name-->
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <button class="hamburger" id="hamburger">
+                    <div class="hamburger-content" tabindex="-1">
+                        <span class="text">Menu</span>
+                        <span class="bar"></span>
+                    </div><!-- end button-content -->
+                </button>
+            <nav>
+                    <ul>
+                        <li>
+                            <a href="./index.html">
+                                <div class="icon">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </div>
+                                <!--icon-->
+                                <div class="name"><span data-text="Home"> Home</span></div>
+                                <!--name-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./outline.html">
+                                <div class="icon">
+                                    <i class="fa fa-code" aria-hidden="true"></i>
+                                    <i class="fa fa-code" aria-hidden="true"></i>
+                                </div>
+                                <!--icon-->
+                                <div class="name"><span data-text="Course"> Course</span></div>
+                                <!--name-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./calendar.html">
+                                <div class="icon">
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                                </div>
+                                <!--icon-->
+                                <div class="name"><span data-text="Schedule">Schedule</span></div>
+                                <!--name-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                </div>
+                                <!--icon-->
+                                <div class="name"><span data-text="Lessons"> Lessons</span></div>
+                                <!--name-->
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="icon">
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                </div>
+                                <!--icon-->
+                                <div class="name"><span data-text="Contact"> Contact</span></div>
+                                <!--name-->
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
         </header>
 
         <main>
@@ -87,18 +90,18 @@
             </section>
             <div class="container">
                 <div class="grid-calendar">
-                    <div class="day1">Day 1</div>
-                    <div class="day2">Day 2</div>
-                    <div class="day3">Day 3</div>
-                    <div class="day4">Day 4</div>
-                    <div class="day5">Day 5</div>
-                    <div class="day6">Day 6</div>
-                    <div class="day7">Day 7</div>
-                    <div class="day8">Day 8</div>
-                    <div class="day9">Day 9</div>
-                    <div class="day10">Day 10</div>
-                    <div class="day11">Day 11</div>
-                    <div class="day12">Day 12</div>
+                    <div class="day1"><p>Day 1</p></div>
+                    <div class="day2"><p>Day 2</p></div>
+                    <div class="day3"><p>Day 3</p></div>
+                    <div class="day4"><p>Day 4</p></div>
+                    <div class="day5"><p>Day 5</p></div>
+                    <div class="day6"><p>Day 6</p></div>
+                    <div class="day7"><p>Day 7</p></div>
+                    <div class="day8"><p>Day 8</p></div>
+                    <div class="day9"><p>Day 9</p></div>
+                    <div class="day10"><p>Day 10</p></div>
+                    <div class="day11"><p>Day 11</p></div>
+                    <div class="day12"><p>Day 12</p></div>
                 </div>
             </div>
 

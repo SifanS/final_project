@@ -1,0 +1,18 @@
+.banner{ 
+    h2{
+        @include margin-center;
+        text-align: center;
+        padding-top: 30px;
+        font-size: 2em;
+    }
+    p{
+    @include margin-center;
+    text-align: center;
+    margin:0;
+    font-size: 1.6em;
+    }
+     margin-bottom: 30px;
+     .mySlides {
+        display:none;
+     }
+}

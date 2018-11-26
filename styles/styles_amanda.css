@@ -27,15 +27,6 @@ body {
 }
 
 body {
-  font-family: Georgia, Times, Times New Roman, serif;
-  line-height: 1.4;
-}
-
-h1, h2, h3, nav a, table {
-  font-family: Tahoma, Verdana, Segoe, sans-serif;
-}
-
-body {
   background-color: #303030;
 }
 
@@ -47,27 +38,23 @@ body {
   display: flex;
 }
 
+main {
+  flex-grow: 1;
+}
+
 header {
-  background-color: #eb203b;
+  background-color: #3737a0;
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 25%;
-}
-@media (max-width: 59.125em) {
-  header {
-    width: 40vw;
-  }
-}
-@media (max-width: 43.75em) {
-  header {
-    width: 20vw;
-  }
+  min-width: 15%;
 }
 header h1 {
   font-size: 1.6em;
   color: white;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 59.125em) {
   header h1 {
@@ -80,25 +67,79 @@ header h1 {
   }
 }
 
-.btn-menu {
+.hamburger {
   display: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 59.125em) {
-  .btn-menu {
+  .hamburger {
     display: block;
-    color: white;
-    font-size: 1.4rem;
-    background-color: #eb203b;
+    width: 40px;
+    background-color: transparent;
     border: none;
+    padding: 0;
+    cursor: pointer;
   }
-}
-@media (max-width: 43.75em) {
-  .btn-menu {
-    font-size: 1em;
-    padding: 10px;
+  .hamburger .hamburger-content {
+    height: 24px;
   }
-  .show .btn-menu {
-    margin: 0 20px 0 25px;
+  .hamburger .text {
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip: rect(0, 0, 0, 0);
+    position: absolute;
+  }
+  .hamburger .bar {
+    display: block;
+    height: 4px;
+    background-color: white;
+    width: 100%;
+    position: relative;
+    top: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .show .hamburger .bar {
+    background-color: transparent;
+  }
+  .hamburger .bar:after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    top: 10px;
+    left: 0;
+    background-color: white;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+  }
+  .show .hamburger .bar:after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .hamburger .bar:before {
+    content: "";
+    width: 100%;
+    height: 4px;
+    top: -10px;
+    left: 0;
+    background-color: white;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+  }
+  .show .hamburger .bar:before {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  .hamburger:focus,
+.hamburger .hamburger-content:focus {
+    outline: none;
+  }
+  .hamburger:focus .hamburger-content {
+    outline: 5px solid #7683C9;
   }
 }
 
@@ -109,6 +150,7 @@ nav ul {
   display: flex;
   flex-direction: column;
   float: left;
+  width: 100%;
 }
 nav ul li {
   list-style: none;
@@ -117,13 +159,8 @@ nav ul li {
 }
 nav ul li a {
   text-decoration: none;
-  padding: 0 50px;
+  text-align: center;
   display: block;
-}
-@media (max-width: 59.125em) {
-  nav ul li a {
-    padding: 0 30px;
-  }
 }
 nav ul li a .icon {
   width: 40px;
@@ -164,7 +201,7 @@ nav ul li a .icon .fa {
   }
 }
 nav ul li a .icon .fa:last-child {
-  color: blue;
+  color: white;
 }
 nav ul li a:hover .icon .fa {
   transform: translateY(-100%);
@@ -201,7 +238,7 @@ nav ul li a .name span::before {
   left: 0;
   width: 100%;
   height: 100%;
-  color: blue;
+  color: white;
 }
 nav ul li a:hover .name span {
   transform: translateY(20px);
@@ -231,10 +268,6 @@ nav ul li a:hover .name span {
   }
 }
 
-main {
-  flex-grow: 1;
-}
-
 .banner {
   margin-bottom: 30px;
 }
@@ -252,10 +285,16 @@ main {
   margin: 0;
   font-size: 1.6em;
 }
+.banner .mySlides {
+  display: none;
+}
 
+section {
+  margin-left: 10px;
+}
 .grid-calendar {
   display: grid;
-  height: 450px;
+  height: 600px;
   grid-template: "day1 day2 day3 day4" "day5 day6 day7 day8" "day9 day10 day11 day12";
   grid-gap: 10px;
   padding: 10px;
@@ -266,11 +305,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day1 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day2 {
   grid-area: day2;
   border: solid 2px black;
   background-color: pink;
+}
+.day2 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 .day3 {
@@ -278,11 +327,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day3 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day4 {
   grid-area: day4;
   border: solid 2px black;
   background-color: pink;
+}
+.day4 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 .day5 {
@@ -290,11 +349,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day5 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day6 {
   grid-area: day6;
   border: solid 2px black;
   background-color: pink;
+}
+.day6 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 .day7 {
@@ -302,11 +371,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day7 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day8 {
   grid-area: day8;
   border: solid 2px black;
   background-color: pink;
+}
+.day8 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 .day9 {
@@ -314,11 +393,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day9 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day10 {
   grid-area: day10;
   border: solid 2px black;
   background-color: pink;
+}
+.day10 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 .day11 {
@@ -326,11 +415,21 @@ main {
   border: solid 2px black;
   background-color: pink;
 }
+.day11 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
+}
 
 .day12 {
   grid-area: day12;
   border: solid 2px black;
   background-color: pink;
+}
+.day12 p {
+  padding-top: 35%;
+  padding-bottom: 35%;
+  text-align: center;
 }
 
 /* Add animation (fade in the popup) */

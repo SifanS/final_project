@@ -1,0 +1,10 @@
+// Wrapper styles
+.wrapper {
+    max-width: 960px;
+    @include margin-center;
+    background-color: $wrapper-bg-color;
+    display: flex;
+}
+main{
+    flex-grow: 1;
+}
