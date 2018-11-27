@@ -4,6 +4,13 @@
     @include margin-center;
     background-color: $wrapper-bg-color;
     display: flex;
+    height:auto;
+    @media (max-width: $tabletLandscape){
+
+    }
+    @media (max-width: $phoneLandscape){
+    }
+
 }
 main{
     flex-grow: 1;

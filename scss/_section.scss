@@ -1,8 +1,38 @@
 
 section{
     margin-left: 10px;
+    @include first-last-el-no-margin;
+ 
+    article{
+        margin:0 20px;
+    }
     @media (max-width: $tabletLandscape){
     }
     @media (max-width: $phoneLandscape){
     }
+    h1{
+        font-family:  $heading-font;
+        font-size: 1.6em;
+        color:rgb(66, 66, 153);
+    }
+    h2{
+        font-family:  $heading-font;
+        color:rgb(66, 66, 153);
+    }
+    p{
+        font-family:  $body-font;
+
+    }
+
+     
+    .row {
+        @include flex-layout-row;
+  
+        @media (max-width: $tabletLandscape) {
+        flex-wrap: wrap;
+        }
+        .one-half  {
+            @extend %row-item;
+            }
+        }
 }

@@ -1,10 +1,16 @@
 
 header {
-    background-color: rgb(55, 55, 160);
+    background-color: #3C4663;
     display: flex;
     flex-direction: column;
     align-items: left;
-    min-width:15%;
+    width:15%;
+    min-width: 15%;
+    img{
+        border:none;
+        box-shadow: none;
+    
+    }
     h1 {
         font-size: 1.6em;        
         color: $text-color-light;

@@ -1,4 +1,42 @@
 // Mixins
+//Mixin for calendar cell
+@mixin calendar-cell {
+    border:solid 1px grey; 
+    border-radius: 10px;
+    box-shadow: 5px -5px 5px #aaaaaa;
+    background-color:transparent;
+    
+    .courseOutline {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        p{
+            color :rgb(66, 66, 153);
+            background-color: wheat;
+            opacity:0.7;
+            font-size: 1.2em;
+            margin-block-start: 5px;
+        }
+ 
+    }
+    .courseOutline .courseContext {
+        visibility: hidden;
+        width: 100%;
+        background-color:transparent;
+        color: rgb(66, 66, 153);
+     
+        /* Position the tooltip text - see examples below! */
+        position: absolute;
+ 
+    }
+    .courseOutline:hover .courseContext {
+        visibility: visible;
+        background-color:wheat;
+        opacity:0.7;
+
+    }
+    }
+
 
 // Mixin for centering element
 // with margin-left: auto
@@ -61,54 +99,9 @@
     }
 }
 
-// Mixin for setting foreground
-// images to cover their container
-// without distortion of the 
-// image
-// using object-fit cover
-@mixin img-cover($abs-pos: true){
-    @if($abs-pos){
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
 
-// Mixin for having an element
-// sit on top of another and
-// and cover the parent element
-// completely
-@mixin el-cover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
-// Mixin to set links
-// to not have their
-// default look
-@mixin plain-link($c: white){
-    text-decoration: none;
-    color: $c;
-}
 
-// Function to set text-color to
-// a light colour or a dark
-// colour depending on the 
-// provided background color;
-@function contrast-text-color($bgc, $ltc: white, $dtc: black){
-    @if(lightness($bgc) > 50){
-        @return $dtc; // lighter background
-    } @else {
-        @return $ltc; // darker background 
-    }
-}
 
 // Layout Mixins
 
@@ -118,7 +111,6 @@
 @mixin flex-layout-row {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 // Center elements in a flex
@@ -130,55 +122,7 @@
     flex-direction: column;
 }
 
-// Aspect Ratio Presets
-$ar-video: (9 / 16) * 100%;
-$ar-square: (1 / 1) * 100%;
-$ar-cinemamatic: (9 / 21) * 100%;
 
-
-// Function to generate aspect
-// ratio percentages
-@function rp($w, $h){
-    @return ($h / $w) * 100%;
-}
-
-// Aspect Ratios
-$aspect-ratios: (
-    'video': rp(16, 9),
-    'square': rp(1,1),
-    'cinema': rp(21,9),
-    'photo': rp(1,1)
-);
-
-// Aspect Ratio Boxes Mixin
-// This defaults to a square 
-// aspect ratio
-@mixin aspect-ratio-box($ar) {
-
-    $ratio: 100%;
-
-    @if map_has_key($aspect-ratios, $ar) {
-        $ratio: map_get($aspect-ratios, $ar);
-    } 
-
-    position: relative;
-
-    &:before {
-        content: "";
-        width: 1px;
-        margin-left: -1px;
-        float: left;
-        height: 0;
-        padding-top: $ratio;
-    }
-     
-    &:after { 
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-}
 
 // Placeholder styles
 // Similar to mixins but without
@@ -187,7 +131,6 @@ $aspect-ratios: (
     width: $two-col;
     padding: $padding;
     @include first-last-el-no-margin;
-    border: 1px dotted #ccc;
     @media (max-width: $phoneLandscape){
         width: $one-col;
         margin-bottom: 8%;

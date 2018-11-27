@@ -4,6 +4,26 @@
    same as in regular CSS. These
    comments will be compiled to 
    the compiled CSS.  */
+section .row .one-half {
+  width: 49%;
+  padding: 30px;
+}
+section .row .one-half > :first-child {
+  margin-top: 0;
+}
+section .row .one-half > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 43.75em) {
+  section .row .one-half {
+    width: 100%;
+    margin-bottom: 8%;
+  }
+  section .row .one-half:last-child {
+    margin-bottom: 0;
+  }
+}
+
 html {
   box-sizing: border-box;
 }
@@ -34,24 +54,29 @@ body {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+  background-color: #f5eddf;
   display: flex;
+  height: auto;
 }
-
 main {
   flex-grow: 1;
 }
 
 header {
-  background-color: #3737a0;
+  background-color: #3C4663;
   display: flex;
   flex-direction: column;
   align-items: left;
+  width: 15%;
   min-width: 15%;
+}
+header img {
+  border: none;
+  box-shadow: none;
 }
 header h1 {
   font-size: 1.6em;
-  color: white;
+  color: #f5ebeb;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -69,13 +94,14 @@ header h1 {
 
 .hamburger {
   display: none;
+  margin-block-start: 10px;
   margin-left: auto;
   margin-right: auto;
 }
 @media (max-width: 59.125em) {
   .hamburger {
     display: block;
-    width: 40px;
+    width: 35px;
     background-color: transparent;
     border: none;
     padding: 0;
@@ -96,8 +122,8 @@ header h1 {
   }
   .hamburger .bar {
     display: block;
-    height: 4px;
-    background-color: white;
+    height: 3px;
+    background-color: #f5ebeb;
     width: 100%;
     position: relative;
     top: 10px;
@@ -109,7 +135,7 @@ header h1 {
   .hamburger .bar:after {
     content: "";
     width: 100%;
-    height: 4px;
+    height: 3px;
     top: 10px;
     left: 0;
     background-color: white;
@@ -123,7 +149,7 @@ header h1 {
   .hamburger .bar:before {
     content: "";
     width: 100%;
-    height: 4px;
+    height: 3px;
     top: -10px;
     left: 0;
     background-color: white;
@@ -143,19 +169,31 @@ header h1 {
   }
 }
 
+nav {
+  margin-block-start: 20px;
+  font-family: Georgia, Times, Times New Roman, serif;
+}
 nav ul {
   margin: 0;
   padding: 20px 0;
-  background: transparent;
   display: flex;
   flex-direction: column;
   float: left;
   width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 nav ul li {
   list-style: none;
   text-align: center;
   display: block;
+  margin-block-end: 10px;
+  height: 90px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+nav ul li:last-child {
+  border-bottom: none;
 }
 nav ul li a {
   text-decoration: none;
@@ -188,7 +226,7 @@ nav ul li a .icon .fa {
   line-height: 40px;
   font-size: 34px;
   transition: 0.5s;
-  color: #fff;
+  color: #000;
 }
 @media (max-width: 59.125em) {
   nav ul li a .icon .fa {
@@ -201,10 +239,20 @@ nav ul li a .icon .fa {
   }
 }
 nav ul li a .icon .fa:last-child {
-  color: white;
+  color: #e91e63;
 }
 nav ul li a:hover .icon .fa {
   transform: translateY(-100%);
+}
+@media (max-width: 59.125em) {
+  nav ul li a:hover .icon .fa {
+    transform: translateY(-118%);
+  }
+}
+@media (max-width: 43.75em) {
+  nav ul li a:hover .icon .fa {
+    transform: translateY(-120%);
+  }
 }
 nav ul li a .name {
   position: relative;
@@ -216,7 +264,7 @@ nav ul li a .name {
 nav ul li a .name span {
   display: block;
   position: relative;
-  color: #fff;
+  color: #000;
   font-size: 18px;
   line-height: 20px;
   transition: 0.5s;
@@ -238,7 +286,7 @@ nav ul li a .name span::before {
   left: 0;
   width: 100%;
   height: 100%;
-  color: white;
+  color: #e91e63;
 }
 nav ul li a:hover .name span {
   transform: translateY(20px);
@@ -292,144 +340,460 @@ nav ul li a:hover .name span {
 section {
   margin-left: 10px;
 }
+section > :first-child {
+  margin-top: 0;
+}
+section > :last-child {
+  margin-bottom: 0;
+}
+section article {
+  margin: 0 20px;
+}
+section h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6em;
+  color: #424299;
+}
+section h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #424299;
+}
+section p {
+  font-family: Georgia, Times, Times New Roman, serif;
+}
+section .row {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 59.125em) {
+  section .row {
+    flex-wrap: wrap;
+  }
+}
 .grid-calendar {
+  background-color: transparent;
+  background-image: url("./../images/schedulebackground.jpg");
+  background-size: 100% 100%;
   display: grid;
   height: 600px;
   grid-template: "day1 day2 day3 day4" "day5 day6 day7 day8" "day9 day10 day11 day12";
   grid-gap: 10px;
-  padding: 10px;
+  padding: 0 10px;
+}
+@media (max-width: 59.125em) {
+  .grid-calendar {
+    height: auto;
+    grid-template: "day1 day2 day3 " "day4 day5 day6" "day7 day8 day9" "day10 day11 day12";
+    grid-template-columns: repeat(3, 32%);
+    grid-template-rows: repeat(4, 130px);
+  }
+}
+@media (max-width: 43.75em) {
+  .grid-calendar {
+    height: auto;
+    background-image: url("./../images/schedulebackground2.jpg");
+    background-size: 100% 100%;
+    background-repeat: repeat-y;
+    grid-template: "day1 day2  " "day3 day4 " "day5 day6" "day7 day8" "day10 day9" "day11 day12";
+    grid-template-columns: repeat(2, 49%);
+    grid-template-rows: repeat(6, 130px);
+  }
 }
 
 .day1 {
   grid-area: day1;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day1 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day1 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day1 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day1 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day1 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day2 {
   grid-area: day2;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day2 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day2 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day2 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day2 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day2 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day3 {
   grid-area: day3;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day3 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day3 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day3 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day3 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day3 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day4 {
   grid-area: day4;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day4 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day4 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day4 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day4 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day4 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day5 {
   grid-area: day5;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day5 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day5 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day5 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day5 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day5 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day6 {
   grid-area: day6;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day6 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day6 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day6 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day6 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day6 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day7 {
   grid-area: day7;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day7 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day7 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day7 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day7 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day7 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day8 {
   grid-area: day8;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day8 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day8 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day8 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day8 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day8 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day9 {
   grid-area: day9;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day9 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day9 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day9 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day9 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day9 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day10 {
   grid-area: day10;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day10 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day10 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day10 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day10 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day10 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day11 {
   grid-area: day11;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day11 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day11 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day11 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day11 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day11 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 .day12 {
   grid-area: day12;
-  border: solid 2px black;
-  background-color: pink;
+  border: solid 1px grey;
+  border-radius: 10px;
+  box-shadow: 5px -5px 5px #aaaaaa;
+  background-color: transparent;
 }
-.day12 p {
-  padding-top: 35%;
-  padding-bottom: 35%;
-  text-align: center;
+.day12 .courseOutline {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+.day12 .courseOutline p {
+  color: #424299;
+  background-color: wheat;
+  opacity: 0.7;
+  font-size: 1.2em;
+  margin-block-start: 5px;
+}
+.day12 .courseOutline .courseContext {
+  visibility: hidden;
+  width: 100%;
+  background-color: transparent;
+  color: #424299;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+}
+.day12 .courseOutline:hover .courseContext {
+  visibility: visible;
+  background-color: wheat;
+  opacity: 0.7;
 }
 
 /* Add animation (fade in the popup) */
