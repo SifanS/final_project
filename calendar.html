@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="./styles/styles_amanda.css">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<html>
-
-</html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCIT COMP1950</title>
+    <title>Calendar</title>
+    <link rel="stylesheet" type="text/css" href="./styles/styles_amanda.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class='wrapper'>
         <header>
-                <img src="images/bcit-logo.png">
-                <button class="hamburger" id="hamburger">
-                <div class="hamburger-content" tabindex="-1">
+            <img src="images/bcit-logo.png" alt="bcit-logo">
+            <button class="hamburger" id="hamburger">
+                <span class="hamburger-content">
                     <span class="text">Menu</span>
                     <span class="bar"></span>
-                </div><!-- end button-content -->
+                </span><!-- end button-content -->
             </button>
             <nav>
                 <ul>
@@ -57,7 +55,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="lesson.html">
                             <div class="icon">
                                 <i class="fa fa-book" aria-hidden="true"></i>
                                 <i class="fa fa-book" aria-hidden="true"></i>
@@ -68,7 +66,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="contact.html">
                             <div class="icon">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -92,113 +90,134 @@
                 <div class="day1">
                     <div class="courseOutline">
                         <p>Day 1</p>
-                        <span class="courseContext">
-                            <li>Course introduction and setup</li>
-                            <li>Tools and standards </li>
-                            <li>HTML / CSS review</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Course introduction and setup</li>
+                                <li>Tools and standards </li>
+                                <li>HTML / CSS review</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <div class="day2">
                     <div class="courseOutline">
                         <p>Day 2</p>
-                        <span class="courseContext">
-                            <span class="courseContext">
+                        <div class="courseContext">
+                            <ul>
                                 <li>CSS @font-face</li>
                                 <li>Responsive web design</li>
-                            </span>
-                        </span>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day3">
                     <div class="courseOutline">
                         <p>Day 3</p>
-                        <span class="courseContext">
-                            <li>Flexbox</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Flexbox</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day4">
                     <div class="courseOutline">
                         <p>Day 4</p>
-                        <span class="courseContext">
-                            <li>CSS3 styling</li>
-                            <li>Transforms</li>
-                            <li>Transitions</li>
-                            <li>Animations</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>CSS3 styling</li>
+                                <li>Transforms</li>
+                                <li>Transitions</li>
+                                <li>Animations</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day5">
                     <div class="courseOutline">
                         <p>Day 5</p>
-                        <span class="courseContext">
-                            <li>Responsive images</li>
-                            <li>Mobile navigation systems</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Responsive images</li>
+                                <li>Mobile navigation systems</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day6">
                     <div class="courseOutline">
                         <p>Day 6</p>
-                        <span class="courseContext">
-                            <li>Midterm Exam </li>
-                            <li>Midterm project time</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Midterm Exam </li>
+                                <li>Midterm project time</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day7">
                     <div class="courseOutline">
                         <p>Day 7</p>
-                        <span class="courseContext">
-                            <li>CSS grid</li>
-
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>CSS grid</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day8">
                     <div class="courseOutline">
                         <p>Day 8</p>
-                        <span class="courseContext">
-                            <li>SASS CSS preprocessor</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>SASS CSS preprocessor</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day9">
                     <div class="courseOutline">
                         <p>Day 9</p>
-                        <span class="courseContext">
-                            <li>Collaborative development</li>
-                            <li>Git and GitHub</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Collaborative development</li>
+                                <li>Git and GitHub</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day10">
                     <div class="courseOutline">
                         <p>Day 10</p>
-                        <span class="courseContext">
-                            <li>Development servers </li>
-                            <li>Ttaccess</li>
-                            <li>PHP</li>
-                            <li>JavaScript</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Development servers </li>
+                                <li>Ttaccess</li>
+                                <li>PHP</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day11">
                     <div class="courseOutline">
                         <p>Day 11</p>
-                        <span class="courseContext">
-                            <li>Group project work</li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Group project work</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="day12">
                     <div class="courseOutline">
                         <p>Day 12</p>
-                        <span class="courseContext">
-                            <li>Final Exam </li>
-                        </span>
+                        <div class="courseContext">
+                            <ul>
+                                <li>Final Exam </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

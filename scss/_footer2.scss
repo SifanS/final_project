@@ -1,0 +1,12 @@
+// Footer Styles
+footer {
+    padding: $padding;
+    background-color: black;
+    width: 100%;
+    @include margin-center;
+    text-align: center;
+    p {
+        @include flatten;
+        color: white;
+    }
+}

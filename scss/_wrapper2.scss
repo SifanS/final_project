@@ -1,0 +1,14 @@
+.wrapper {
+    max-width: 1260px;
+  //  @include height;
+    background-color: $wrapper-bg-color;
+    display: flex; // nav bar --> img
+    text-align: center;
+    @include margin-center;
+}
+main {
+    height: 720px;
+    width: 100%;
+    
+ }
+

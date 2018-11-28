@@ -1,11 +1,11 @@
 .hamburger {
 
     display: none;
-    margin-block-start: 10px;
     @include margin-center;
     @media (max-width: $tabletLandscape){
         display: block;
         width: 35px;
+        height: 35px;
         background-color: transparent;
         border: none;
         padding: 0;

@@ -7,4 +7,3 @@ function showHideID() {
         document.getElementById("BCIT ID").style.display="block";
     }
 }
-
